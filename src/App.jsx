@@ -11,6 +11,10 @@ import Blog from './components/Blog/Blog';
 function App() {
   const [count, setCount] = useState(0)
 
+  const handleReadTime = (time) => {
+    console.log(time);
+  };
+
   return (
     <div className="App">
       <div className="header">
@@ -19,7 +23,7 @@ function App() {
       <div className="main-container">
         <div className="container d-flex justify-content-between">
         <div className="blog-container col-md-7 card">
-        <Blog></Blog>
+        <Blog handleReadTime={handleReadTime}></Blog>
         </div>
         <div className="side-cart col-md-4 card">
           <SideCart></SideCart>

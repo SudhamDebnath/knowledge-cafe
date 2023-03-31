@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SingleBlog from '../SingleBlog/SingleBlog';
 
-const Blog = () => {
+const Blog = ({handleReadTime}) => {
 
     const [blogs, setBlogs] = useState([]);
 
@@ -12,9 +12,9 @@ const Blog = () => {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container row">
             {
-                blogs.map((blog) => <SingleBlog blog={blog}></SingleBlog>)
+                blogs.map((blog) => <SingleBlog handleReadTime={handleReadTime} blog={blog}></SingleBlog>)
            }
         </div>
     );

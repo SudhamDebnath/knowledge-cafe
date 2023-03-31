@@ -2,19 +2,23 @@ import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBookmark } from '@fortawesome/free-solid-svg-icons'
+import SideCart from './../SideCart/SideCart';
 
-const SingleBlog = ({ blog, handleReadTime }) => {
+const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
+    // console.log(blog);
     
     // const {id, author_img, author_name, blog_title, cover_img, hash_tags,
     //     published_date, reading_time, handleReadTime} = props.blog;
     
+    // const handleBookmark = () => {
+    //     toast("Bookmark Added Successfully!");
+    //     console.log(blog);
+    //   };
+    
 
-    const handleBookmark = () => {
-        toast("Wow so easy!")
-    }
     return (
         <div>
-            <div className="blog-container w-100 m-auto col-md-6">
+            <div className="blog-container w-100 m-auto">
                 <div className="blog-card">
                     <div className="blog-img">
                         <img src={blog.cover_img} className='rounded mb-3' width="100%"  height="80%" alt="" />
@@ -29,16 +33,28 @@ const SingleBlog = ({ blog, handleReadTime }) => {
                                 <p>{blog.published_date}</p>
                             </div>
                         </div>
-                        <div className="time-bookmark">
-                            <p>{blog.reading_time} min read </p>
-                            <p onClick={handleBookmark}><FontAwesomeIcon icon={faBookmark} /></p>
+                        <div className="time-bookmark d-flex gap-3">
+                           
+                            <p className='gap-5'>
+                                {blog.reading_time} min read 
+                            </p>
+
+                            <a className='f-black' href="#">
+                                <FontAwesomeIcon icon={faBookmark}
+                                    onClick={()=>handleBookmark(blog.blog_no)} />
+                            </a>
+
+                            
                         </div>
                     </div>
                 </div>
                 <div>
                     <h1>{blog.blog_title}</h1>
                     <p>{blog.hash_tags}</p>
-                    <button onClick={()=>handleReadTime(blog.reading_time)} className='btn btn-link'>Mark as read</button>
+                    <a href="#" onClick={()=>handleReadTime(blog.reading_time)}>
+                    Mark as read
+                    </a>
+    
                 </div>
                 <hr />
             </div>

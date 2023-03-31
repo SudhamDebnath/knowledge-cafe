@@ -10,12 +10,12 @@ const SingleBlog = ({ blog, handleReadTime }) => {
             <div className="blog-container w-100 m-auto col-md-6">
                 <div className="blog-card">
                     <div className="blog-img">
-                        <img src={blog.cover_img} className='rounded' width="100%"  height="80%" alt="" />
+                        <img src={blog.cover_img} className='rounded mb-3' width="100%"  height="80%" alt="" />
                     </div>
                     <div className="author d-flex justify-content-between">
                         <div className="author-info d-flex">
                             <div className='author-img'>
-                            <img className='rounded-circle' src={blog.author_img} alt="" width="50" height="50" />
+                            <img className='rounded-circle me-3' src={blog.author_img} alt="" width="50" height="50" />
                             </div>
                             <div>
                                 <h5>{blog.author_name}</h5>
@@ -30,7 +30,7 @@ const SingleBlog = ({ blog, handleReadTime }) => {
                 <div>
                     <h1>{blog.blog_title}</h1>
                     <p>{blog.hash_tags}</p>
-                    <button onClick={()=>handleReadTime(blog.reading_time)} className='btn btn-info'>Mark as read</button>
+                    <button onClick={()=>handleReadTime(blog.reading_time)} className='btn btn-link'>Mark as read</button>
                 </div>
                 <hr />
             </div>

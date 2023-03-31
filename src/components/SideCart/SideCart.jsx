@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const SideCart = () => {
+const SideCart = ({ readTime }) => {
+
+    const [time, setTime] = useState(0);
+    
+    useEffect(() => {
+        const getReadTime = localStorage.getItem("readTime");
+        setTime(getReadTime);
+        
+    }, [readTime]);
+    
+
   return (
     <div className="">
-      <div>
-        <h3>Spent time on read : 177 min</h3>
+      <div className="bg-secondary-subtle">
+        <h3>Spent time on read : {time} min</h3>
       </div>
 
       <div>
         <h3>Bookmarked Blogs : 8</h3>
-        <h3>Master Microsoft Power Platform and Become an In-Demand!</h3>
+        <h4>Master Microsoft Power Platform and Become an In-Demand!</h4>
       </div>
     </div>
   );

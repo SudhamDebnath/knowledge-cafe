@@ -1,18 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header/Header';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 import SideCart from './components/SideCart/SideCart';
 import Blog from './components/Blog/Blog';
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [readTime, setReadTime] = useState("");
 
   const handleReadTime = (time) => {
-    console.log(time);
+    const previousReadTime = JSON.parse(localStorage.getItem("readTime"));
+    if (previousReadTime) {
+      const sum = previousReadTime + time;
+      localStorage.setItem("readTime", sum);
+      setReadTime(sum);
+    }
+    else {
+      localStorage.setItem("readTime", time);
+      setReadTime(time);
+    }
   };
 
   return (
@@ -22,11 +29,11 @@ function App() {
       </div>
       <div className="main-container">
         <div className="container d-flex justify-content-between">
-        <div className="blog-container col-md-7 card">
+        <div className="blog-container col-md-8">
         <Blog handleReadTime={handleReadTime}></Blog>
         </div>
-        <div className="side-cart col-md-4 card">
-          <SideCart></SideCart>
+        <div className="side-cart col-md-4">
+          <SideCart readTime={readTime}></SideCart>
         </div>
         </div>
       </div>

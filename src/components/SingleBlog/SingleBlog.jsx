@@ -1,10 +1,17 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faBookmark } from '@fortawesome/free-solid-svg-icons'
 
 const SingleBlog = ({ blog, handleReadTime }) => {
     
     // const {id, author_img, author_name, blog_title, cover_img, hash_tags,
     //     published_date, reading_time, handleReadTime} = props.blog;
     
+
+    const handleBookmark = () => {
+        toast("Wow so easy!")
+    }
     return (
         <div>
             <div className="blog-container w-100 m-auto col-md-6">
@@ -23,7 +30,8 @@ const SingleBlog = ({ blog, handleReadTime }) => {
                             </div>
                         </div>
                         <div className="time-bookmark">
-                        <p>{blog.reading_time} min read </p>
+                            <p>{blog.reading_time} min read </p>
+                            <p onClick={handleBookmark}><FontAwesomeIcon icon={faBookmark} /></p>
                         </div>
                     </div>
                 </div>

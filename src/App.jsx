@@ -4,6 +4,9 @@ import Header from './components/Header/Header';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import SideCart from './components/SideCart/SideCart';
 import Blog from './components/Blog/Blog';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function App() {
 
@@ -37,6 +40,8 @@ function App() {
         </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
+      <FontAwesomeIcon/>
     </div>
   )
 }

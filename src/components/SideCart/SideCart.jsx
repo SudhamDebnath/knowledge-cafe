@@ -11,21 +11,25 @@ const SideCart = ({ readTime, bookmarkCount, bookmarkTitles, handleClear }) => {
 
   return (
     <div className="container-fluid">
-      <div className="bg-info bg-opacity-25 fw-bold p-3 border border-info rounded">
-        <p className="fs-4">Spent Time On Read : {readTime} Min</p>
+      <div className="bg-info bg-opacity-25 fw-bold  border border-info rounded">
+        <p className="fs-5 pt-3 text-center">Spent Time On Read : {readTime} Min</p>
       </div>
 
       <div className="bg-info bg-opacity-25 mt-4 mb-4 p-3 border border-info rounded">
-        <p className="fs-4 fw-bold">Bookmarked Blogs : {bookmarkCount}</p>
+        <p className="fs-5 fw-bold">Bookmarked Blogs : {bookmarkCount}</p>
         <div className="bg-white rounded p-3">
-        <p className="fs-5 fw-semibold">{bookmarkTitles}</p>
+          <p className="fs-5 fw-semibold">{bookmarkTitles}</p>
         </div>
+
+        
       </div>
 
-      <button className="btn fw-bold bg-info bg-opacity-25 border-info" onClick={handleClear}>
+      <button
+        className="btn fw-semibold bg-info bg-opacity-25 border-info mb-4"
+        onClick={handleClear}
+      >
         Clear Local Storage
       </button>
-
     </div>
   );
 };

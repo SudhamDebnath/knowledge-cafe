@@ -7,6 +7,7 @@ import Blog from './components/Blog/Blog';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import BlogQuestion from './components/BlogQuestion/BlogQuestion';
 
 function App() {
 
@@ -54,7 +55,15 @@ function App() {
     setBookmarkCount(previousCount => previousCount + 1);
     setBookmarkTitles(previousTitles => [...previousTitles, title]);
   }
-};
+  };
+  
+  //Handle Local storage Clear
+  const handleClear = () => {
+    localStorage.clear();
+    setBookmarkCount(0);
+    setBookmarkTitles([]);
+    toast("Local storage cleared successfully!");
+  };
 
 
   return (
@@ -62,16 +71,17 @@ function App() {
       <div className="header">
       <Header></Header>
       </div>
-      <div className="main-container row">
-        <div className="d-flex justify-content-between">
-        <div className="blog-container col-md-8 sm:col-md-1">
+      <div className="main-container">
+        <div className="d-flex justify-content-between row">
+        <div className="blog-container col-lg-8 col-sm-12">
         <Blog handleReadTime={handleReadTime} handleBookmark={handleBookmark}></Blog>
         </div>
-        <div className="side-cart col-md-4 sm:col-md-1">
-            <SideCart bookmarkCount={bookmarkCount} bookmarkTitles={bookmarkTitles} readTime={readTime}></SideCart>
+        <div className="side-cart col-lg-4 col-sm-12">
+            <SideCart bookmarkCount={bookmarkCount} bookmarkTitles={bookmarkTitles} readTime={readTime} handleClear={handleClear} ></SideCart>
         </div>
         </div>
       </div>
+      <BlogQuestion></BlogQuestion>
       <ToastContainer></ToastContainer>
       <FontAwesomeIcon/>
     </div>

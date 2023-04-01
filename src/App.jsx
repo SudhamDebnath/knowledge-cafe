@@ -11,39 +11,51 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function App() {
 
   const [readTime, setReadTime] = useState(0);
-  const [bookmark, setBookmark] = useState(0);
 
-  //Handle Spent Time On Read
+  // const [bookmark, setBookmark] = useState(0);
+  // const [bookmark, setBookmark] = useState([]);
+
+  const [bookmarkCount, setBookmarkCount] = useState(0);
+  const [bookmarkTitles, setBookmarkTitles] = useState([]);
+
+  //Handle Spent Time On Reading
   const handleReadTime = (time) => {
-    const previousReadTime = JSON.parse(localStorage.getItem("readTime"));
-    if (previousReadTime) {
-      const sum = previousReadTime + time;
-      localStorage.setItem("readTime", sum);
-      setReadTime(sum);
-    }
-    else {
-      localStorage.setItem("readTime", time);
-      setReadTime(time);
-    }
+    const previousReadTime = readTime;
+    const newReadTime = previousReadTime + time;
+    setReadTime(newReadTime);
   };
+
+  //Handle Spent Time On Read with local storage
+  // const handleReadTime = (time) => {
+  //   const previousReadTime = JSON.parse(localStorage.getItem("readTime"));
+  //   if (previousReadTime) {
+  //     const sum = previousReadTime + time;
+  //     localStorage.setItem("readTime", sum);
+  //     setReadTime(sum);
+  //   }
+  //   else {
+  //     localStorage.setItem("readTime", time);
+  //     setReadTime(time);
+  //   }
+  // };
 
 
   //Handle Bookmarked Blogs
-  const handleBookmark = (no) => {
-    toast("Bookmark Added Successfully!");
-    const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
-    if (previousBookmark) {
-      const sum = previousBookmark + no;
-      localStorage.setItem("bookmark", sum);
-      setBookmark(sum);
-    }
-    else {
-      localStorage.setItem("bookmark", no);
-      setBookmark(no);
-    }
-   
-  };
   
+  const handleBookmark = (no, title) => {
+  const previousBookmark = JSON.parse(localStorage.getItem("bookmark")) || [];
+  if (previousBookmark.includes(no)) {
+    toast("You have already bookmarked this blog!");
+  } else {
+    toast("Bookmark added successfully!");
+    const newBookmark = [...previousBookmark, no];
+    localStorage.setItem("bookmark", JSON.stringify(newBookmark));
+    // setBookmark(newBookmark);
+    setBookmarkCount(previousCount => previousCount + 1);
+    setBookmarkTitles(previousTitles => [...previousTitles, title]);
+  }
+};
+
 
   return (
     <div className="App container">
@@ -56,7 +68,7 @@ function App() {
         <Blog handleReadTime={handleReadTime} handleBookmark={handleBookmark}></Blog>
         </div>
         <div className="side-cart col-md-4 sm:col-md-1">
-          <SideCart bookmark={bookmark}  readTime={readTime}></SideCart>
+            <SideCart bookmarkCount={bookmarkCount} bookmarkTitles={bookmarkTitles} readTime={readTime}></SideCart>
         </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import {faBookmark } from '@fortawesome/free-solid-svg-icons'
 import SideCart from './../SideCart/SideCart';
 
 const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
-    // console.log(blog);
+    
     
     // const {id, author_img, author_name, blog_title, cover_img, hash_tags,
     //     published_date, reading_time, handleReadTime} = props.blog;
@@ -41,7 +41,7 @@ const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
 
                             <a className='f-black' href="#">
                                 <FontAwesomeIcon icon={faBookmark}
-                                    onClick={()=>handleBookmark(blog.blog_no)} />
+                                    onClick={()=>handleBookmark(blog.blog_no, blog.blog_title)} />
                             </a>
 
                             

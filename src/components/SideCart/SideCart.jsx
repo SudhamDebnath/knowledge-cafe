@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-const SideCart = ({readTime, bookmark}) => {
+const SideCart = ({ readTime, bookmarkCount, bookmarkTitles }) => {
+  // const [time, setTime] = useState(0);
 
+  // useEffect(() => {
+  //     const getReadTime = localStorage.getItem("readTime");
+  //     setTime(getReadTime);
 
-    // const [time, setTime] = useState(0);
-    
-    // useEffect(() => {
-    //     const getReadTime = localStorage.getItem("readTime");
-    //     setTime(getReadTime);
-        
-    // }, [readTime]);
-    
+  // }, [readTime]);
 
   return (
     <div className="">
@@ -19,8 +16,8 @@ const SideCart = ({readTime, bookmark}) => {
       </div>
 
       <div className="">
-              <h3>Bookmarked Blogs :{bookmark}</h3>
-        <h4>Master Microsoft Power Platform and Become an In-Demand!</h4>
+        <h3>Bookmarked Blogs No:{bookmarkCount}</h3>
+        <h4>Bookmark Titles: {bookmarkTitles}</h4>
       </div>
     </div>
   );

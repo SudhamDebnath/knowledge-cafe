@@ -2,8 +2,7 @@ import React from "react";
 
 const BlogQuestion = () => {
   return (
-      <div>
-          
+    <div>
       <h1 className="text-center m-5 text-decoration-underline">Blogs</h1>
 
       {/* Cards Section */}
@@ -14,29 +13,28 @@ const BlogQuestion = () => {
             <img
               src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
               class="card-img-top"
-              alt="..."
+              alt="Image"
             />
             <div class="card-body">
               <h5 class="card-title">01. Props vs state</h5>
               <p class="card-text">
-               
                 In React, props and state are two concepts that are frequently
-                used to manage and manipulate data in a component. <br /> Props (short
-                for "properties") are used to pass data from a parent component
-                to a child component. They are immutable, meaning they cannot be
-                changed within the child component. Instead, the parent
-                component can update the props and re-render the child component
-                with the updated values. Props are passed to a component as
-                attributes in JSX and accessed within the component using
-                this.props. State, on the other hand, is used to manage data
-                that can change within a component. State is mutable, meaning it
-                can be changed using this.setState() within the component. When
-                the state changes, the component will automatically re-render to
-                reflect the new state. State should be used to manage data that
-                is specific to the component and not passed down from a parent
-                component. <br /> In summary, props are used to pass data from a parent
-                to a child component, while state is used to manage data that
-                can change within a component.
+                used to manage and manipulate data in a component. <br /> Props
+                (short for "properties") are used to pass data from a parent
+                component to a child component. They are immutable, meaning they
+                cannot be changed within the child component. Instead, the
+                parent component can update the props and re-render the child
+                component with the updated values. Props are passed to a
+                component as attributes in JSX and accessed within the component
+                using this.props. State, on the other hand, is used to manage
+                data that can change within a component. State is mutable,
+                meaning it can be changed using this.setState() within the
+                component. When the state changes, the component will
+                automatically re-render to reflect the new state. State should
+                be used to manage data that is specific to the component and not
+                passed down from a parent component. <br /> In summary, props
+                are used to pass data from a parent to a child component, while
+                state is used to manage data that can change within a component.
               </p>
             </div>
           </div>
